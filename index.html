@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>גלריית וידאו</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Experiments</a>
+                <a href="#" class="nav-link">Sessions</a>
+                <a href="#" class="nav-link">Community</a>
+            </div>
+            <div class="nav-center">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                    <span class="logo-text">Video Labs</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-icon-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.5 6c-.61-.45-1.35-.72-2.15-.8C17.64 4.46 16.86 4 16 4s-1.64.46-2.35 1.2c-.8.08-1.54.35-2.15.8-.61.45-1.08 1.07-1.35 1.8-.27-.73-.74-1.35-1.35-1.8-.61-.45-1.35-.72-2.15-.8C6.64 4.46 5.86 4 5 4s-1.64.46-2.35 1.2c-.8.08-1.54.35-2.15.8-.61.45-1.08 1.07-1.35 1.8-.27-.73-.74-1.35-1.35-1.8-.61-.45-1.35-.72-2.15-.8C-1.36 4.46-2.14 4-3 4" />
+                    </svg>
+                </button>
+                <button class="nav-icon-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <line x1="9" y1="9" x2="9.01" y2="9" />
+                        <line x1="15" y1="9" x2="15.01" y2="9" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <header class="header">
+            <h1 class="main-title">Recommended Video Tools</h1>
+            <p class="subtitle">Experiments using our latest video models</p>
+
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="חפש וידאו..." class="search-input">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">הכל</button>
+                    <button class="category-btn" data-category="פיתוח">פיתוח</button>
+                    <button class="category-btn" data-category="עיצוב">עיצוב</button>
+                    <button class="category-btn" data-category="JavaScript">JavaScript</button>
+                    <button class="category-btn" data-category="CSS">CSS</button>
+                    <button class="category-btn" data-category="Backend">Backend</button>
+                    <button class="category-btn" data-category="DevOps">DevOps</button>
+                    <button class="category-btn" data-category="Testing">Testing</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div id="loadingSpinner" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>טוען...</p>
+            </div>
+
+            <div id="noResults" class="no-results hidden">
+                <p>לא נמצאו תוצאות עבור החיפוש שלך</p>
+            </div>
+
+            <div id="videoGrid" class="video-grid">
+                <!-- כרטיסי וידאו יתווספו כאן דינמית -->
+            </div>
+        </main>
+
+        <!-- Modal לצפייה בוידאו -->
+        <div id="videoModal" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="modal-video-container">
+                    <video id="modalVideo" controls class="modal-video">
+                        הדפדפן שלך לא תומך בתגית וידאו.
+                    </video>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <div class="modal-meta">
+                        <span id="modalViews" class="modal-views"></span>
+                        <span id="modalDate" class="modal-date"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
